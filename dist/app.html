@@ -7,31 +7,30 @@
     <title>FanTASKtic</title>
 </head>
 <body class="flex justify-center h-screen m-0 p-0 bg-blue-50 font-mono">
-    <main class="w-full mx-16 lg:mx-96 mt-4">
-        <div class="">
+    <main class="w-full mx-16 mt-4">
+        <section class="">
             <form action="" class="grid grid-cols-7 grid-rows-1 md:grid-rows-1 gap-2 h-1/4">
-                <input type="text" placeholder="Crie uma tarefa. Ex: Passear com o pet..." class="text-blue-950 col-span-full row-span-1 md:col-span-5 md:row-span-1 p-2 border-2 border-blue-500 rounded-md">
-                <input type="time" class="text-blue-950 col-span-full row-span-2 md:col-span-1 md:row-span-1 p-2 border-2 border-blue-500 rounded-md text-center">
-                <button type="submit" class="flex justify-center col-span-full row-span-3 md:col-span-1 md:row-span-1 p-2 bg-blue-500 rounded-md"><img src="/src/stocks/send-icon.svg" alt=""></button>
+                <input id="taskName" type="text" placeholder="Crie uma tarefa. Ex: Passear com o pet..." class="text-blue-950 col-span-full row-span-1 md:col-span-5 md:row-span-1 p-2 border-2 border-blue-500 rounded-md">
+                <input id="taskTime" type="time" class="text-blue-950 col-span-full row-span-2 md:col-span-1 md:row-span-1 p-2 border-2 border-blue-500 rounded-md text-center">
+                <button id="btn-submit" type="submit" class="flex justify-center col-span-full row-span-3 md:col-span-1 md:row-span-1 p-2 bg-blue-500 rounded-md"><img src="/src/stocks/send-icon.svg" alt=""></button>
             </form>
-        </div>
-
-        <div class="flex flex-col gap-2 mt-4 h-3/4 rounded-lg">
-            <div id="task" class="relative flex p-2 justify-between opacity-40 border-2 border-blue-500 h-14 rounded-lg">
+        </section>
+        <!-- task de exemplo -->
+        <section id="task-section" class="flex flex-col gap-2 mt-4 h-3/4">
+            <div id="taskExample" class="relative flex p-2 justify-between opacity-40 border-2 border-blue-500 h-14 rounded-lg">
                 <div class="flex flex-row gap-2 text-blue-950">
                     <input type="checkbox" disabled>
                     <p class="select-none self-center">Passear com o pet</p>
                 </div>
                 <div class="flex flex-row gap-4">
-                    <div class="flex flex-row gap-2 text-blue-950">
-                        <span class="select-none self-center">Até: </span>
-                        <p class="select-none self-center">XX:XX</p>
-                    </div>
+                    <span class="select-none self-center text-blue-950">Até: XX: XX</span>
                     <button disabled class="flex justify-center w-10 p-2 bg-blue-500 rounded-lg"><img src="/src/stocks/trash-bin.svg" alt="Enviar"></button>
                 </div>
             </div>
-        </div>  
+        </section>  
+
+
     </main>
-    <script src="/script/home.js"></script>
+    <script src="/script/app.js"></script>
 </body>
 </html>
