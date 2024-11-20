@@ -1,19 +1,24 @@
 document.querySelector('#btn-submit').addEventListener('click', (event) => {
     event.preventDefault();
-    // hidden the task example
-    const taskExample = document.querySelector('#taskExample');
-    taskExample.classList.add('hidden');
-
     // capturing input values
     const taskName = document.querySelector('#taskName').value;
     const taskTime = document.querySelector('#taskTime').value;
     // creating and adding to task list
-    taskTime === "00:00" || taskName === "" ? alert('Insira um valor') : createTask(taskName, taskTime)
+    if(taskName == "" || taskTime === "") {
+        alert('Tarefa em branco');
+    } else {
+        // hidden the task example
+        const taskExample = document.querySelector('#taskExample');
+        taskExample.classList.add('hidden');
+        createTask(taskName, taskTime);
+    }
 
 })
 
+
+
 function createTask(taskName, taskTime) {
-    // section & div child
+    // section parent & div child
     const section = document.querySelector('#task-section');
     const taskDiv = document.createElement('div'); 
     taskDiv.classList.add('flex', 'p-2', 'justify-between', 'border-2', 'border-blue-500', 'h-14', 'rounded-lg');
@@ -47,4 +52,7 @@ function createTask(taskName, taskTime) {
     actions.append(trashAction);
     trashAction.append(trashLogo);
 
+    trashAction.addEventListener('click', () => {
+        section.removeChild(taskDiv);
+    });
 }
