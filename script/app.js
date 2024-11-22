@@ -1,23 +1,37 @@
-document.querySelector('#btn-submit').addEventListener('click', (event) => {
+let taskProps = {
+    names: [],
+    times: []
+}
+
+const btn = document.querySelector('#btn-submit')
+
+btn.addEventListener('click', (event) => {
     event.preventDefault();
     // capturing input values
     const taskName = document.querySelector('#taskName').value;
     const taskTime = document.querySelector('#taskTime').value;
-    // creating and adding to task list
-    if(taskName == "" || taskTime === "") {
-        alert('Tarefa em branco');
-    } else {
-        // hidden the task example
-        const taskExample = document.querySelector('#taskExample');
-        taskExample.classList.add('hidden');
-        createTask(taskName, taskTime);
-    }
 
+    switch(taskName == "" || taskTime === "") {
+        case true:
+            alert('Tarefa em branco');
+        case false: 
+        // check if task already exists
+            if(taskProps.names.includes(taskName)) {
+                alert('Essa tarefa já existe.')
+            } else {
+                // creating and adding to task list
+                taskProps.names.push(taskName);
+                taskProps.times.push(taskTime);
+                createTask(taskProps.names.at(-1), taskProps.times.at(-1));
+            }
+    }
 })
 
 
-
 function createTask(taskName, taskTime) {
+    // hidden task example
+    const taskExample = document.querySelector('#taskExample');
+    taskExample.classList.add('hidden');
     // section parent & div child
     const section = document.querySelector('#task-section');
     const taskDiv = document.createElement('div'); 
@@ -52,6 +66,7 @@ function createTask(taskName, taskTime) {
     actions.append(trashAction);
     trashAction.append(trashLogo);
 
+    // BUG: when i remove the tasks, arrays value (names & times) still exist
     trashAction.addEventListener('click', () => {
         section.removeChild(taskDiv);
     });
