@@ -600,12 +600,12 @@ video {
   display: grid;
 }
 
-.hidden {
-  display: none;
-}
-
 .h-1\/4 {
   height: 25%;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .h-14 {
@@ -616,20 +616,16 @@ video {
   height: 75%;
 }
 
-.h-screen {
-  height: 100vh;
-}
-
-.w-10 {
-  width: 2.5rem;
-}
-
 .w-40 {
   width: 10rem;
 }
 
 .w-full {
   width: 100%;
+}
+
+.w-10 {
+  width: 2.5rem;
 }
 
 .select-none {
@@ -809,12 +805,5 @@ video {
 
   .md\:grid-rows-1 {
     grid-template-rows: repeat(1, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1024px) {
-  .lg\:mx-96 {
-    margin-left: 24rem;
-    margin-right: 24rem;
   }
 }
